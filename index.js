@@ -50,8 +50,7 @@ app.get('/products', (_, res) => {
 });
 
 app.post('/products', (req, res) => {
-    const product = req;
-    console.log(product);
+    const product = req.body;
     const productToSave = {
         name: product.name,
         price: product.price,
