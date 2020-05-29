@@ -82,14 +82,22 @@ app.delete('/product', (req, res) => {
     }
 });
 
+const token = '3f5d3s3jdjd5df6ejndgsts76wssd6d6f8f';
+
 app.post('/signup', (req, res) => {
     const user = req.body;
     if (user.name === 'Test' && user.password === 'Password') {
-        return res.send(JSON.stringify('3f5d3s3jdjd5df6ejndgsts76wssd6d6f8f'));
+        return res.send(JSON.stringify(token));
     }
     return res.sendStatus(404);
 });
 
-app.get('/list', (req, res) => {
+const users = ['User_1', 'User_2', 'User_3'];
 
+app.get('/list', (req, res) => {
+    const key = req.query;
+    if (key.token === token) {
+        return res.send(JSON.stringify(users));
+    }
+    return res.sendStatus(503);
 });
