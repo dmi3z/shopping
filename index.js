@@ -81,3 +81,15 @@ app.delete('/product', (req, res) => {
         });  
     }
 });
+
+app.post('/signup', (req, res) => {
+    const user = req.body;
+    if (user.name === 'Test' && user.password === 'Password') {
+        return res.send('3f5d3s3jdjd5df6ejndgsts76wssd6d6f8f');
+    }
+    return res.sendStatus(404);
+});
+
+app.get('/list', (req, res) => {
+
+});
